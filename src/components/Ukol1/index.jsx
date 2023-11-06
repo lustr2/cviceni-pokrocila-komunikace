@@ -7,9 +7,11 @@ import './style.css';
   Krok 1: Založte stav, který bude udávat jestli je žárovka zapnutá nebo vypnutá, například 
   bulbOn a setBulbOn. Podle stavu nastavte třídu `bulb--on` na žárovku.
 
-  Krok 2: Přidejte komponentě SwitchButton novou prop onSwitch, která bude očekávat funkci, 
-  která se zavolá při kliknutí na tlačítko a bude měnit stav žárovky. Vyzkoušejte, že jde 
-  pomocí vypínače žárovku zapnout a vypnout.
+  Krok 2: Přidejte komponentě SwitchButton novou prop `onSwitch`, která bude očekávat funkci, 
+  která se zavolá při kliknutí na tlačítko a bude měnit stav žárovky. `onSwitch` se nebude
+  volat s žádným parametrem. Do `onSwitch` tedy nepůjde předat přímo nastavovací funkci stavu –
+  budete si muset vytvořit vlastní funkci, která při každém zavolání přepne stav na opačnou hodnotu.
+  Vyzkoušejte, že jde pomocí vypínače žárovku zapnout a vypnout.
 
   Krok 3: Vypínač má taky svou ikonku. Přidejte tedy do komponenty SwitchButton prop `on`, 
   která bude udávat jestli je vypínač zapnutý nebo vypnutý. Podle toho nastavte třídu 
