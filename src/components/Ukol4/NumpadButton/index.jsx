@@ -1,7 +1,12 @@
 import './style.css';
 
-export const NumpadButton = ({ digit }) => {
+export const NumpadButton = ({ digit, onDigitClick }) => {
+
+  const handleOnClick = () => {
+    onDigitClick(digit);
+  }
+
   return (
-    <button className="numpad-button">{digit}</button>
+    <button className="numpad-button" onClick={handleOnClick} >{digit}</button>
   );
 };

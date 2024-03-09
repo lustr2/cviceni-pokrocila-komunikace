@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Product } from "./Product";
 
 /*
-  Zadání: Budeme chtít, aby uživatel mohl klikat na kousky oblečení a u každého viděl, kolik kusů si objednal. Zároveň chceme, aby se mu po kliknutí na kousek oblečení zvýšila celková cena objednávky.
+  Zadání: Budeme chtít, aby uživatel mohl klikat na kousky oblečení a u každého viděl, kolik kusů si objednal. 
+  Zároveň chceme, aby se mu po kliknutí na kousek oblečení zvýšila celková cena objednávky.
   
   Krok 1: V komponentě `Product` založte stav `count` a zařiďte, aby se správně navyšoval a 
   zobrazoval počet kusů, když uživatel klíká na jednodlitvé produkty.
@@ -15,16 +17,23 @@ import { Product } from "./Product";
 */
 
 export const Ukol3 = () => {
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const handleAddToCart = (price) => {
+    console.log("Cena celkem: " + (totalPrice + price));
+    setTotalPrice(totalPrice + price);
+  }
+
   return (
     <>
       <p>
-        Cena: <strong>0 Kč</strong>
+        Cena: <strong>{totalPrice} Kč</strong>
       </p>
       <div className="products">
-        <Product image="/clothing/item01.jpg" name="Bunda" price={500} />
-        <Product image="/clothing/item02.jpg" name="Halenka" price={1200} />
-        <Product image="/clothing/item03.jpg" name="Svetr" price={1500} />
-        <Product image="/clothing/item04.jpg" name="Mikina" price={800} />
+        <Product image="/clothing/item01.jpg" name="Bunda" price={500} onAddToCart={handleAddToCart} />
+        <Product image="/clothing/item02.jpg" name="Halenka" price={1200} onAddToCart={handleAddToCart} />
+        <Product image="/clothing/item03.jpg" name="Svetr" price={1500} onAddToCart={handleAddToCart} />
+        <Product image="/clothing/item04.jpg" name="Mikina" price={800} onAddToCart={handleAddToCart} />
       </div>
     </>
   );
